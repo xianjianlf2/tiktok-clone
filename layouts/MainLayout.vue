@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import SideNavMain from '~/components/SideNavMain.vue'
+import TopNav from '~/components/TopNav.vue'
 
 const route = useRoute()
 </script>
