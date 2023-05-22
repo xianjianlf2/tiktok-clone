@@ -1,9 +1,9 @@
 <template>
   <NuxtPage />
 
-  <AuthOverview></AuthOverview>
+  <AuthOverlay v-if="$generalStore.isLoginOpen"></AuthOverlay>
 </template>
 
 <script setup>
-import AuthOverview from '~/components/AuthOverview.vue'
+const { $generalStore } = useNuxtApp()
 </script>

@@ -24,12 +24,19 @@ const props = defineProps([
   'inputType',
   'max',
   'autoFocus',
-  'error'
+  'error',
 ])
 const { input, placeholder, inputType, max, autoFocus, error } = toRefs(props)
 
+onMounted(() => {
+  if (autoFocus?.value) {
+    const input = document.getElementById(`input-${placeholder?.value}`)
+    input?.focus()
+  }
+})
+
 const inputComputed = computed({
-  get: () => input!.value,
-  set: (val) => emit('update:input', val)
+  get: () => input?.value,
+  set: (val) => emit('update:input', val),
 })
 </script>

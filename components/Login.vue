@@ -9,7 +9,14 @@
       v-model:input="email"
       inputType="email"
       :autoFocus="true"
-      :error="errors && errors.email ? errors.email[0] : ''"
+      error=""
+    />
+  </div>
+  <div class="px-6 pb-2">
+    <TextInput
+      placeholder="Password"
+      v-model:input="password"
+      inputType="password"
     />
   </div>
   <div class="px-6 text-[12px] text-gray-600">Forgot password?</div>
@@ -27,8 +34,6 @@
 </template>
 
 <script setup lang="ts">
-import TextInput from '~/components/TextInput.vue'
-
 const email = ref()
 const password = ref()
 const errors = ref()
