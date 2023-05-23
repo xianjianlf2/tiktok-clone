@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import SideNavMain from '~/components/SideNavMain.vue'
+import TopNav from '~/components/TopNav.vue'
+
+const route = useRoute()
+</script>
+
 <template>
   <TopNav />
   <div
@@ -10,10 +17,3 @@
     <slot />
   </div>
 </template>
-
-<script setup lang="ts">
-import SideNavMain from '~/components/SideNavMain.vue'
-import TopNav from '~/components/TopNav.vue'
-
-const route = useRoute()
-</script>

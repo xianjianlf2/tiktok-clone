@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import TopNav from '~/components/TopNav.vue'
+
+const route = useRoute()
+</script>
+
 <template>
   <div class="bg-[#F8F8F8] h-[100vh]">
     <TopNav />
@@ -6,9 +12,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import TopNav from '~/components/TopNav.vue'
-
-const route = useRoute()
-</script>

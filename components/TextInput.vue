@@ -1,23 +1,4 @@
-<template>
-  <div>
-    <input
-      :id="`input-${placeholder}`"
-      :placeholder="placeholder"
-      class="block w-full bg-[#F1F1F2] text-gray-800 border border-gray-300 rounded-md py-2.5 px-3 focus:outline-none"
-      :type="inputType"
-      v-model="inputComputed"
-      autocomplete="off"
-      :maxlength="max"
-    />
-    <span v-if="error" class="text-red-500 text-[14px] font-semibold">
-      {{ error }}
-    </span>
-  </div>
-</template>
-
 <script setup lang="ts">
-const emit = defineEmits(['update:input'])
-
 const props = defineProps([
   'input',
   'placeholder',
@@ -26,17 +7,33 @@ const props = defineProps([
   'autoFocus',
   'error',
 ])
-const { input, placeholder, inputType, max, autoFocus, error } = toRefs(props)
+
+const emit = defineEmits(['update:input'])
+
+const { input: inputRef, placeholder: placeholderRef, inputType: inputTypeRef, max: maxRef, autoFocus: autoFocusRef, error: errorRef } = toRefs(props)
 
 onMounted(() => {
-  if (autoFocus?.value) {
-    const input = document.getElementById(`input-${placeholder?.value}`)
+  if (autoFocusRef?.value) {
+    const input = document.getElementById(`input-${placeholderRef?.value}`)
     input?.focus()
   }
 })
 
 const inputComputed = computed({
-  get: () => input?.value,
-  set: (val) => emit('update:input', val),
+  get: () => inputRef?.value,
+  set: val => emit('update:input', val),
 })
 </script>
+
+<template>
+  <div>
+    <input
+      :id="`input-${placeholderRef}`" v-model="inputComputed" :placeholder="placeholderRef"
+      class="block w-full bg-[#F1F1F2] text-gray-800 border border-gray-300 rounded-md py-2.5 px-3 focus:outline-none"
+      :type="inputTypeRef" autocomplete="off" :maxlength="maxRef"
+    >
+    <span v-if="errorRef" class="text-red-500 text-[14px] font-semibold">
+      {{ errorRef }}
+    </span>
+  </div>
+</template>

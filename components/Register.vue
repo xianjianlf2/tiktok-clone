@@ -1,41 +1,55 @@
+<script setup lang="ts">
+const name = ref()
+const email = ref()
+const password = ref()
+const confirmPassword = ref()
+const errors = ref()
+
+function register() {}
+</script>
+
 <template>
-  <div class="text-center text-[28px] mb-4 font-bold">Sign up</div>
+  <div class="text-center text-[28px] mb-4 font-bold">
+    Sign up
+  </div>
 
   <div class="px-6 pb-2">
     <TextInput
-      placeholder="Full name"
       v-model:input="name"
-      inputType="text"
-      :autoFocus="true"
+      placeholder="Full name"
+      input-type="text"
+      :auto-focus="true"
       error=""
     />
   </div>
   <div class="px-6 pb-2">
     <TextInput
-      placeholder="Email address"
       v-model:input="email"
-      inputType="email"
+      placeholder="Email address"
+      input-type="email"
       error=""
     />
   </div>
   <div class="px-6 pb-2">
     <TextInput
-      placeholder="Password"
       v-model:input="password"
-      inputType="password"
+      placeholder="Password"
+      input-type="password"
       error=""
     />
   </div>
   <div class="px-6 pb-2">
     <TextInput
-      placeholder="Confirm password"
       v-model:input="confirmPassword"
-      inputType="password"
+      placeholder="Confirm password"
+      input-type="password"
       :error="errors && errors.confirmPassword ? errors.confirmPassword[0] : ''"
     />
   </div>
 
-  <div class="px-6 text-[12px] text-gray-600">Forgot password?</div>
+  <div class="px-6 text-[12px] text-gray-600">
+    Forgot password?
+  </div>
 
   <div class="px-6 pb-2 mt-6">
     <button
@@ -45,20 +59,10 @@
           ? 'bg-gray-200'
           : 'bg-[#F02C56]'
       "
-      @click="register"
       class="w-full text-[17px] font-semibold text-white bg-[#F02C56] py-3 rounded-sm"
+      @click="register"
     >
       Sign up
     </button>
   </div>
 </template>
-
-<script setup lang="ts">
-let name = ref()
-let email = ref()
-let password = ref()
-let confirmPassword = ref()
-let errors = ref()
-
-const register = () => {}
-</script>

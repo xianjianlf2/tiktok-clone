@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const video = ref<HTMLVideoElement>()
+
+onMounted(() => {
+  video.value && video.value.play()
+})
+</script>
+
 <template>
   <div id="PostMain" class="flex border-b py-6">
     <div class="cursor-pointer">
@@ -5,7 +13,7 @@
         src="https://picsum.photos/id/8/300/320"
         width="60"
         class="rounded-full max-h-[60px]"
-      />
+      >
     </div>
     <div class="pl-3 w-full px-4">
       <div class="flex items-center justify-between pb-0.5">
@@ -28,10 +36,14 @@
         </button>
       </div>
 
-      <div class="text-[15px] pb-0.5">#fun #cool #SuperAwesome</div>
+      <div class="text-[15px] pb-0.5">
+        #fun #cool #SuperAwesome
+      </div>
       <div class="text-[14px] pb-0.5 flex items-center font-semibold">
         <Icon name="mdi:music" size="17" />
-        <div class="px-1">original sound - AWESOME</div>
+        <div class="px-1">
+          original sound - AWESOME
+        </div>
         <Icon name="mdi:heart" size="20" />
       </div>
 
@@ -45,19 +57,19 @@
             muted
             class="rounded-xl object-cover mx-auto h-full"
             src="/sea.mp4"
-          ></video>
+          />
 
           <img
             src="~/assets/images/tiktok-logo-white.png"
             class="absolute right-2 bottom-14"
             width="90"
-          />
+          >
         </div>
         <div class="relative mr-[75px]">
           <div class="absolute bottom-0 pl-2">
             <div class="pb-4 text-center">
               <button class="rounded-full bg-gray-200 p-2 cursor-pointer">
-                <Icon name="mdi:heart" size="25"></Icon>
+                <Icon name="mdi:heart" size="25" />
               </button>
               <span class="text-xs text-gray-800 font-semibold">34</span>
             </div>
@@ -80,11 +92,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const video = ref<HTMLVideoElement>()
-
-onMounted(() => {
-  video.value && video.value.play()
-})
-</script>

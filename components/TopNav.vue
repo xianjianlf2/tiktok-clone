@@ -1,3 +1,11 @@
+<script setup>
+const { $userStore, $generalStore } = useNuxtApp()
+
+const route = useRoute()
+
+const showMenu = ref(false)
+</script>
+
 <template>
   <div
     id="TopNav"
@@ -9,7 +17,7 @@
     >
       <div :class="route.fullPath === '/' ? 'w-[80%]' : 'lg:w-[20%] w-[70%]'">
         <NuxtLink to="/">
-          <img src="~/assets/images/tiktok-logo.png" width="115" />
+          <img src="~/assets/images/tiktok-logo.png" width="115">
         </NuxtLink>
       </div>
 
@@ -20,7 +28,7 @@
           type="text"
           class="w-full pl-3 my-2 bg-transparent placeholder-[#838383] text-[15px] focus:outline-none"
           placeholder="Search accounts"
-        />
+        >
         <div class="px-3 py-1 flex items-center border-l border-l-gray-300">
           <Icon name="ri:search-line" color="#A1A2A7" size="22" />
         </div>
@@ -32,18 +40,18 @@
         <button
           class="flex items-center border rounded-sm px-3 py-[6px] hover:bg-gray-100"
         >
-          <Icon name="mdi:plus" color="#000000" size="22"></Icon>
+          <Icon name="mdi:plus" color="#000000" size="22" />
           <span class="px-2 font-medium text-[15px]">Upload</span>
         </button>
 
         <div v-if="!$userStore.id" class="flex items-center">
           <button
-            @click="$generalStore.isLoginOpen = true"
             class="flex items-center bg-[#f02c56] text-white border rounded-md px-3 py-[6px]"
+            @click="$generalStore.isLoginOpen = true"
           >
             <span class="mx-4 font-medium text-[15px]">Log in</span>
           </button>
-          <Icon name="mdi:dots-vertical" color="#161724" size="25"></Icon>
+          <Icon name="mdi:dots-vertical" color="#161724" size="25" />
         </div>
 
         <div v-else class="flex items-center">
@@ -52,20 +60,20 @@
             name="carbon:send-alt"
             color="#161724"
             size="30"
-          ></Icon>
+          />
           <Icon
             class="mr-5"
             name="bx:message-detail"
             color="#161724"
             size="27"
-          ></Icon>
+          />
           <div class="relative">
             <button class="mt-1" @click="showMenu = !showMenu">
               <img
                 src="https://picsum.photos/id/83/300/320"
                 width="33"
                 class="rounded-full"
-              />
+              >
             </button>
 
             <div
@@ -74,15 +82,15 @@
               class="absolute bg-white rounded-lg py-1.5 w-[200px] shadow-xl border top-[43px] -right-2"
             >
               <NuxtLink
-                @click="showMenu = false"
                 class="flex items-center justify-start py-3 px-2 hover:bg-gray-100 cursor-pointer"
+                @click="showMenu = false"
               >
-                <Icon name="ph:user" size="20"></Icon>
+                <Icon name="ph:user" size="20" />
                 <span class="pl-2 font-semibold text-sm">Profile</span>
               </NuxtLink>
               <div
-                @click="logout()"
                 class="flex items-center justify-start py-3 px-1.5 hover:bg-gray-100 border-t cursor-pointer"
+                @click="logout()"
               >
                 <Icon name="ic:outline-login" size="20" />
                 <span class="pl-2 font-semibold text-sm">Log out</span>
@@ -94,13 +102,5 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const { $userStore, $generalStore } = useNuxtApp()
-
-const route = useRoute()
-
-const showMenu = ref(false)
-</script>
 
 <style scoped></style>

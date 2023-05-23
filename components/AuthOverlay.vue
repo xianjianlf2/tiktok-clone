@@ -1,3 +1,8 @@
+<script setup>
+const { $generalStore } = useNuxtApp()
+const isRegister = ref(true)
+</script>
+
 <template>
   <div
     id="AuthOverlay"
@@ -6,8 +11,8 @@
     <div class="relative bg-white w-full max-w-[470px] h-[70%] p-4 rounded-lg">
       <div class="w-full flex justify-end">
         <button
-          @click="$generalStore.isLoginOpen = false"
           class="p-1.5 rounded-full bg-gray-100"
+          @click="$generalStore.isLoginOpen = false"
         >
           <Icon name="mdi:close" size="26" />
         </button>
@@ -21,8 +26,8 @@
       >
         <span class="text-[14px] text-gray-600">Don’t have an account?</span>
         <button
-          @click="isRegister = !isRegister"
           class="text-[14px] text-[#F02C56] font-semibold pl-1"
+          @click="isRegister = !isRegister"
         >
           <span v-if="isRegister">Sign up</span>
           <span v-else>Log in</span>
@@ -31,8 +36,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const { $generalStore } = useNuxtApp()
-let isRegister = ref(true)
-</script>
