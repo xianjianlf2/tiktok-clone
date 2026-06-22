@@ -1,42 +1,33 @@
-# Nuxt 3 Minimal Starter
+# TikTok Clone
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A TikTok-style short-video web app built with **Nuxt 3** — a vertical video feed, auth, video upload with an in-browser image cropper, profile editing, and user/post pages.
 
-## Setup
+## Features
 
-Make sure to install the dependencies:
+- 🎬 Vertical scrolling video feed (`pages/index.vue`, `PostMain` / `PostUser`)
+- 🔐 Auth overlay — register / login (`AuthOverlay`, `Login`, `Register`)
+- ⬆️ Video upload with image cropping (`pages/upload`, `vue-advanced-cropper`)
+- 👤 Profile pages & edit profile (`pages/profile/[id]`, `EditProfileOverlay`)
+- 📄 Single post page (`pages/post/[id]`)
+- 💾 Persisted auth/user state via Pinia (`stores/`, `@pinia-plugin-persistedstate`)
+
+## Tech Stack
+
+- [Nuxt 3](https://nuxt.com/) · Vue 3
+- [Pinia](https://pinia.vuejs.org/) (+ persistedstate)
+- [Tailwind CSS](https://tailwindcss.com/) · nuxt-icon
+- axios · vue-advanced-cropper
+
+## Getting Started
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
 pnpm install
+pnpm dev          # http://localhost:3000
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`
+Build for production:
 
 ```bash
-npm run dev
+pnpm build
+pnpm preview
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
